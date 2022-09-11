@@ -1,4 +1,4 @@
-package com.example.demo.categories.controllers;
+package com.example.demo.controllers;
 
 import com.example.demo.categories.CategoriesDto;
 import com.example.demo.service.CategoriesService;
