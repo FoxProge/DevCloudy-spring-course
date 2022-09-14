@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class ProductDto {
-    private Long id;
+    private Long productId;
     private String productName;
     private String location;
     private int quantity;
