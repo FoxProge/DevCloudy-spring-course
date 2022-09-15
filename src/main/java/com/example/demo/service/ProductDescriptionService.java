@@ -1,8 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.categories.CategoriesCreateDto;
-import com.example.demo.categories.CategoriesDto;
-import com.example.demo.entity.Categories;
 import com.example.demo.entity.ProductDescription;
 import com.example.demo.mapper.ProductDescriptionMapper;
 import com.example.demo.productDescription.ProductDescriptionCreateDto;
