@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -30,4 +27,7 @@ public class Product {
     private float height;
     private LocalDate date_added;
     private int viewed;
+    @ManyToOne
+    @JoinColumn()
+    private Categories category;
 }

@@ -1,5 +1,7 @@
 package com.example.demo.product;
 
+import com.example.demo.entity.Categories;
+import com.example.demo.entity.Manufacturer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
