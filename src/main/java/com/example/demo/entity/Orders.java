@@ -22,4 +22,6 @@ public class Orders {
     private float price;
     private LocalDate deliveryDate;
     private Long deliveryId;
+    @OneToMany()
+    private List<Product> products = new ArrayList<Product>();
 }

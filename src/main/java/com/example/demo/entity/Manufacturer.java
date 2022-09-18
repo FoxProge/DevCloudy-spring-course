@@ -20,4 +20,6 @@ public class Manufacturer {
     private String ownerFio;
     private String address;
     private String location;
+    @OneToMany()
+    private List<Product> products = new ArrayList<Product>();
 }

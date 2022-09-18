@@ -15,11 +15,10 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 public class ProductDto {
     private Long productId;
-    private String productName;
+    private String product;
     private String location;
     private int quantity;
-    private Long stockStatusId;
-    private Long manufacturerId;
+    private String stockStatus;
     private float price;
     private float width;
     private float length;
@@ -27,4 +26,8 @@ public class ProductDto {
     private float height;
     private LocalDate date_added;
     private int viewed;
+    private Long categoryId;
+    private Long manufacturerId;
+    private Long storeId;
+    private Long orderId;
 }

@@ -11,6 +11,6 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class ProductImageDto {
     private Long imageId;
-    private Long productId;
     private String imagePath;
+    private Long productId;
 }

@@ -14,6 +14,8 @@ public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long imageId;
-    private Long productId;
     private String imagePath;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 }

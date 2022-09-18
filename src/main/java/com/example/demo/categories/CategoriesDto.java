@@ -11,5 +11,5 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class CategoriesDto {
     private Long categoryId;
-    private String category_name;
+    private String category;
 }

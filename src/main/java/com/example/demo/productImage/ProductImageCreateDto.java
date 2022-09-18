@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ProductImageCreateDto {
-    private Long productId;
     private String imagePath;
+    private Long productId;
 }

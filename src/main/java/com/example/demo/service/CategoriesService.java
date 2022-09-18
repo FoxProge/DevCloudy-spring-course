@@ -24,11 +24,11 @@ public class CategoriesService {
         log.info("Получение всех категорий");
         return repository.findAll()
                 .stream()
-                .map(mapper::categoriesToCategoriesDto).collect(Collectors.toList());
+                .map(mapper::categoriesToDto).collect(Collectors.toList());
     }
     public CategoriesDto getCategoryById(Long id){
         log.info("Получение категории по Id");
-        return mapper.categoriesToCategoriesDto(repository.findById(id).orElse(null));
+        return mapper.categoriesToDto(repository.findById(id).orElse(null));
     }
     public void deleteCategory(Long id){
         log.info("Удаление категории");
@@ -36,8 +36,8 @@ public class CategoriesService {
     }
     public CategoriesDto createCategory(CategoriesCreateDto request){
         log.info("Создание категории");
-        Categories categories = mapper.categoriesDtoToCategories(request);
+        Categories categories = mapper.dtoToCategories(request);
         repository.save(categories);
-        return mapper.categoriesToCategoriesDto(categories);
+        return mapper.categoriesToDto(categories);
     }
 }

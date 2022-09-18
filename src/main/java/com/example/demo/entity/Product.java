@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,11 +18,10 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productId;
-    private String productName;
+    private String product;
     private String location;
     private int quantity;
-    private Long stockStatusId;
-    private Long manufacturerId;
+    private String stockStatus;
     private float price;
     private float width;
     private float length;
@@ -29,6 +30,17 @@ public class Product {
     private LocalDate date_added;
     private int viewed;
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "category_id")
     private Categories category;
+    @ManyToOne
+    @JoinColumn(name = "manufacturer_id")
+    private Manufacturer manufacturer;
+    @OneToMany()
+    private List<ProductImage> productImages = new ArrayList<ProductImage>();
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Stores store;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Orders order;
 }
