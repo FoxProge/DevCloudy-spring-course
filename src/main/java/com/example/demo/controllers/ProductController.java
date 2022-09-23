@@ -16,6 +16,7 @@ import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @AllArgsConstructor
 @Getter
 @Setter
@@ -35,13 +36,22 @@ public class ProductController {
         return ResponseEntity.ok(service.getProductById(productId));
     }
 
-    @DeleteMapping(value = "/product/{productId}")
+    @GetMapping(
+            value = "/product/{categoriesId}",
+            produces = {"application/json"})
+    public ResponseEntity<ProductDto> getProductByCategory(
+            @Parameter(description = "Идентификатор категории", required = true)
+            @PositiveOrZero @PathVariable("categoriesId") Long categoriesId){
+        return ResponseEntity.ok(service.getProductByCategory(categoriesId));
+    }
+    @DeleteMapping(value = "/product/{Id}")
     public ResponseEntity<Void> deleteProduct(
             @Parameter(description = "Идентификатор продукта", required = true)
             @PositiveOrZero @PathVariable("productId") Long productId){
         service.deleteProduct(productId);
         return ResponseEntity.noContent().build();
     }
+
     @PostMapping(value = "/product/{productId}")
     public ResponseEntity<ProductDto> createProduct(
             @Parameter(description = "Запрос на создание продукта")

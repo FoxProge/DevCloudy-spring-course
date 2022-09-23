@@ -16,7 +16,7 @@ import java.util.List;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
     private String product;
     private String location;
@@ -29,14 +29,13 @@ public class Product {
     private float height;
     private LocalDate date_added;
     private int viewed;
+    private String image;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Categories category;
     @ManyToOne
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
-    @OneToMany()
-    private List<ProductImage> productImages = new ArrayList<ProductImage>();
     @ManyToOne
     @JoinColumn(name = "store_id")
     private Stores store;

@@ -30,6 +30,10 @@ public class ProductService {
         log.info("Получение продукта по Id");
         return mapper.productToProductDto(repository.findById(id).orElse(null));
     }
+    public ProductDto getProductByCategory(Long categoryId){
+        log.info("Получение продукта по его Id категории");
+        return mapper.productToProductDto(repository.getByCategoryId(categoryId).orElse(null));
+    }
     public void deleteProduct(Long id){
         log.info("Удаление продукта");
         repository.deleteById(id);

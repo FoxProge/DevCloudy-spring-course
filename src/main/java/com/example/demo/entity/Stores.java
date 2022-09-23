@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Stores {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long storeId;
     private String name;
     private String ownerFio;

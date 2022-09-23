@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Categories {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
     private String category;
     @OneToMany()

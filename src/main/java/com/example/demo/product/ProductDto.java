@@ -26,6 +26,7 @@ public class ProductDto {
     private float height;
     private LocalDate date_added;
     private int viewed;
+    private String image;
     private Long categoryId;
     private Long manufacturerId;
     private Long storeId;

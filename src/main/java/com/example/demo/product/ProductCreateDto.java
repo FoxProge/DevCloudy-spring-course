@@ -19,8 +19,9 @@ public class ProductCreateDto {
     private float height;
     private LocalDate date_added;
     private int viewed;
-    private Long categoryId;
-    private Long manufacturerId;
-    private Long storeId;
-    private Long orderId;
+    private String image;
+    private int categoryId;
+    private int manufacturerId;
+    private int storeId;
+    private int orderId;
 }
