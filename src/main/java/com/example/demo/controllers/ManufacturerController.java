@@ -16,6 +16,7 @@ import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @AllArgsConstructor
 @Getter
 @Setter
@@ -36,14 +37,14 @@ public class ManufacturerController {
         return ResponseEntity.ok(service.getManufacturerById(manufacturerId));
     }
 
-    @DeleteMapping(value = "/manufacturer/{manufacturerId}")
+    @DeleteMapping(value = "/manufacturer/delete/{manufacturerId}")
     public ResponseEntity<Void> deleteManufacturer(
             @Parameter(description = "Идентификатор изготовителя", required = true)
             @PositiveOrZero @PathVariable("manufacturerId") Long manufacturerId){
         service.deleteManufacturer(manufacturerId);
         return ResponseEntity.noContent().build();
     }
-    @PostMapping(value = "/manufacturer/{manufacturerId}")
+    @PostMapping(value = "/manufacturer/create")
     public ResponseEntity<ManufacturerDto> createManufacturer(
             @Parameter(description = "Запрос на создание изготовителя")
             @Valid @RequestBody ManufacturerCreateDto request){

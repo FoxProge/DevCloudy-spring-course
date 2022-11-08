@@ -16,6 +16,7 @@ import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @AllArgsConstructor
 @Getter
 @Setter
@@ -36,14 +37,14 @@ public class CategoriesController {
         return ResponseEntity.ok(service.getCategoryById(categoryId));
     }
 
-    @DeleteMapping(value = "/categories/{categoryId}")
+    @DeleteMapping(value = "/categories/delete/{categoryId}")
     public ResponseEntity<Void> deleteCategory(
             @Parameter(description = "Идентификатор категории", required = true)
             @PositiveOrZero @PathVariable("categoryId") Long categoryId){
         service.deleteCategory(categoryId);
         return ResponseEntity.noContent().build();
     }
-    @PostMapping(value = "/categories/{categoryId}")
+    @PostMapping(value = "/categories/create")
     public ResponseEntity<CategoriesDto> createCategory(
             @Parameter(description = "Запрос на создание категории")
             @Valid @RequestBody CategoriesCreateDto request){

@@ -2,11 +2,13 @@ package com.example.demo.product;
 
 import com.example.demo.entity.Categories;
 import com.example.demo.entity.Manufacturer;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
+@Builder
 public class ProductCreateDto {
     private String product;
     private String location;

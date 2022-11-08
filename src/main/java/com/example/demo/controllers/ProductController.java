@@ -36,23 +36,14 @@ public class ProductController {
         return ResponseEntity.ok(service.getProductById(productId));
     }
 
-    @GetMapping(
-            value = "/product/{categoriesId}",
-            produces = {"application/json"})
-    public ResponseEntity<ProductDto> getProductByCategory(
-            @Parameter(description = "Идентификатор категории", required = true)
-            @PositiveOrZero @PathVariable("categoriesId") Long categoriesId){
-        return ResponseEntity.ok(service.getProductByCategory(categoriesId));
-    }
-    @DeleteMapping(value = "/product/{Id}")
+    @DeleteMapping(value = "/product/delete/{productId}")
     public ResponseEntity<Void> deleteProduct(
             @Parameter(description = "Идентификатор продукта", required = true)
             @PositiveOrZero @PathVariable("productId") Long productId){
         service.deleteProduct(productId);
         return ResponseEntity.noContent().build();
     }
-
-    @PostMapping(value = "/product/{productId}")
+    @PostMapping(value = "/product/create")
     public ResponseEntity<ProductDto> createProduct(
             @Parameter(description = "Запрос на создание продукта")
             @Valid @RequestBody ProductCreateDto request){

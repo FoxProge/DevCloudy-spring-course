@@ -16,6 +16,7 @@ import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @AllArgsConstructor
 @Getter
 @Setter
@@ -35,14 +36,14 @@ public class OrdersController {
         return ResponseEntity.ok(service.getOrdersById(ordersId));
     }
 
-    @DeleteMapping(value = "/orders/{ordersId}")
+    @DeleteMapping(value = "/orders/delete/{ordersId}")
     public ResponseEntity<Void> deleteOrders(
             @Parameter(description = "Идентификатор заказа", required = true)
             @PositiveOrZero @PathVariable("ordersId") Long ordersId){
         service.deleteOrders(ordersId);
         return ResponseEntity.noContent().build();
     }
-    @PostMapping(value = "/orders/{ordersId}")
+    @PostMapping(value = "/orders/create")
     public ResponseEntity<OrdersDto> createOrders(
             @Parameter(description = "Запрос на создание заказа")
             @Valid @RequestBody OrdersCreateDto request){

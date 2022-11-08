@@ -6,8 +6,12 @@ import com.example.demo.product.ProductCreateDto;
 import com.example.demo.product.ProductDto;
 import com.example.demo.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+import org.webjars.NotFoundException;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,14 +34,12 @@ public class ProductService {
         log.info("Получение продукта по Id");
         return mapper.productToProductDto(repository.findById(id).orElse(null));
     }
-    public ProductDto getProductByCategory(Long categoryId){
-        log.info("Получение продукта по его Id категории");
-        return mapper.productToProductDto(repository.getByCategoryId(categoryId).orElse(null));
-    }
+
     public void deleteProduct(Long id){
         log.info("Удаление продукта");
         repository.deleteById(id);
     }
+
     public ProductDto createProduct(ProductCreateDto request){
         log.info("Создание продукта");
         Product product = mapper.productDtoToProduct(request);

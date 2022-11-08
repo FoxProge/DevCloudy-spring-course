@@ -10,5 +10,4 @@ public class OrdersCreateDto {
     private String address;
     private float price;
     private LocalDate deliveryDate;
-    private Long deliveryId;
 }

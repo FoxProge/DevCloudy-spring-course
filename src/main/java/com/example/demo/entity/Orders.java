@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Orders {
+public class Orders { 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
@@ -21,7 +21,6 @@ public class Orders {
     private String address;
     private float price;
     private LocalDate deliveryDate;
-    private Long deliveryId;
     @OneToMany()
     private List<Product> products = new ArrayList<Product>();
 }
